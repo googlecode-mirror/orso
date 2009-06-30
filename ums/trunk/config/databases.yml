@@ -1,0 +1,7 @@
+all:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=localhost;dbname=ums;unix_socket=/Applications/mampstack-1.1-2/mysql/tmp/mysql.sock'
+      username: ums
+      password: password

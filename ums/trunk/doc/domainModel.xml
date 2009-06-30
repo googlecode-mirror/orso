@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+    Document   : domainModel.xml
+    Created on : 29 giugno 2009, 8.44
+    Author     : michele orselli
+    Description:
+        Descrizione del dominio
+-->
+
+<domain name="Security" id="security">
+  
+  <concept name="Programming Language Tools" id="prog_lang_tools">
+    <concept name="Java" id="java">
+      <concept name="JCA/JCE" id="jcajce">
+        <concept name="KeyPairGenerator" id="keypairgen" />
+        <concept name="Cipher" id="cipher" />
+        <concept name="Signature" id="signature" />
+      </concept>
+      <concept name="BCProvider" id="bcprovider" />
+      <concept name="BigInteger" id="bigint"/>
+    </concept>
+  </concept>
+
+  <concept name="Security Technologies" id="sec_tec">
+    <concept name="Cryptology" id="cryptology">
+      <concept name="Modern Cryptology" id="modern_crypto">
+        <concept name="Public Key Mechanism" id="public_key_mech">
+          <concept name="Asymmetric Block Cipher" id="asym_block_chiper" />
+          <concept name="Deterministic Cipher" id="determ_chiper" />
+        </concept>  
+      </concept>
+    </concept>
+    <concept name="Cryptosystem" id="cryptosystem">
+      <concept name="RSA" id="rsa">
+        <concept name="E_Algorithm" id="e_alg" />
+        <concept name="D_Algorithm" id="d_alg" />
+        <concept name="KeyGen_Algorithm" id="keygen_alg" />
+      </concept>  
+      <concept name="Digital Signature" id="digital_signature" />
+    </concept>
+  </concept>
+
+  <concept name="Theoretical Foundation" id="theor_found">
+    <concept name="Number Theory" id="number_theory">
+      <concept name="Hard Problems" id="hard_problems">
+        <concept name="Integer Factorization" id="int_fac" />
+        <concept name="E th root mod n" id="E_th_root_mod_n" />
+      </concept>
+      <concept name="Chinese Remainder Theorem" id="chi_th_remainder" />
+      <concept name="Modular Power" id="mod_pow" />
+      <concept name="Repeated Square and Multiply" id="rep_sq_mul" />
+      <concept name="Extended Euclidean Algorithm" id="ext_eucl_alg" />
+    </concept>
+  </concept>
+  
+  <concept name="Standard" id="standard">
+    <concept name="PKCS#1" id="pkcs1"/>
+  </concept>
+</domain>
