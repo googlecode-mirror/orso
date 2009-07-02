@@ -1,9 +1,9 @@
 # # Populate this file with data to be loaded by your ORM's *:data-load task.
 # # You can create multiple files in this directory (i.e. 010_users.yml,
 # # 020_articles.yml, etc) which will be loaded in alphabetical order.
-# # 
+# #
 # # See documentation for your ORM's *:data-load task for more information.
-# 
+#
 # User:
 #   fabien:
 #     username: fabien
@@ -15,3 +15,36 @@
 #     password: changeme
 #     name:     Kris Wallsmith
 #     email:    kris.wallsmith@symfony-project.com
+DomainModel:
+  Concept_1:
+    concept_name: Security
+    concept_slug: security
+    children:
+      Concept_2:
+        concept_name: Programming Language Tools
+        concept_slug: prog_lang_tools
+        children:
+          Category_2a:
+            concept_name: Java
+            concept_slug: java
+          Category_2b:
+            concept_name: JCA/JCE
+            concept_slug: jcajce
+          Category_2c:
+            concept_name: KeyPairGenerator
+            concept_slug: keypairgen
+          Category_2d:
+            concept_name: Cipher
+            concept_slug: cipher
+          Category_2e:
+            concept_name: Signature
+            concept_slug: signature
+          Category_2f:
+            concept_name: BCProvider
+            concept_slug: bcprovider
+          Category_2g:
+            concept_name: BigInteger
+            concept_slug: bigint
+      Category_3:
+        concept_name: Security Technologies
+        concept_slug: sec_tec

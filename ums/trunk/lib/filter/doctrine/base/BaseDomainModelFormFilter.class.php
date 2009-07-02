@@ -44,7 +44,7 @@ class BaseDomainModelFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'concept_id'   => 'Number',
+      'id'           => 'Number',
       'concept_name' => 'Text',
       'concept_slug' => 'Text',
       'lft'          => 'Number',

@@ -1,0 +1,1 @@
+rsync --progress -azC --force --delete --exclude-from=config/rsync_exclude.txt -e "ssh -p22" ./ orso_80@ums.micheleorselli.com:/home/orso_80/ums.micheleorselli.com/ 2>&1

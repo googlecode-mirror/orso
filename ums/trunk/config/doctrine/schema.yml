@@ -1,6 +1,5 @@
 DomainModel:
   actAs:  [NestedSet]
   columns:
-    concept_id:   {type: integer, notnull: true, primary: true}
     concept_name: {type: string(255)}
     concept_slug:  {type: string(255), notnull: true, unique: true}

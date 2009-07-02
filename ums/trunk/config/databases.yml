@@ -5,3 +5,11 @@ all:
       dsn: 'mysql:host=localhost;dbname=ums;unix_socket=/Applications/mampstack-1.1-2/mysql/tmp/mysql.sock'
       username: ums
       password: password
+
+prod:
+  doctrine:
+    class: sfDoctrineDatabase
+    param:
+      dsn: 'mysql:host=mysql.micheleorselli.com;dbname=ums_db'
+      username: ums_db_user
+      password: adaptative

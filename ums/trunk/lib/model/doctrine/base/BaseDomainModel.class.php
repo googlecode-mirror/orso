@@ -8,7 +8,6 @@ abstract class BaseDomainModel extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('domain_model');
-        $this->hasColumn('concept_id', 'integer', null, array('type' => 'integer', 'primary' => true));
         $this->hasColumn('concept_name', 'string', 255, array('type' => 'string', 'length' => '255'));
         $this->hasColumn('concept_slug', 'string', 255, array('type' => 'string', 'notnull' => true, 'unique' => true, 'length' => '255'));
     }

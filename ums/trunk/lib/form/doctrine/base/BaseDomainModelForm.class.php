@@ -12,7 +12,7 @@ class BaseDomainModelForm extends BaseFormDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'concept_id'   => new sfWidgetFormInputHidden(),
+      'id'           => new sfWidgetFormInputHidden(),
       'concept_name' => new sfWidgetFormInput(),
       'concept_slug' => new sfWidgetFormInput(),
       'lft'          => new sfWidgetFormInput(),
@@ -21,7 +21,7 @@ class BaseDomainModelForm extends BaseFormDoctrine
     ));
 
     $this->setValidators(array(
-      'concept_id'   => new sfValidatorDoctrineChoice(array('model' => 'DomainModel', 'column' => 'concept_id', 'required' => false)),
+      'id'           => new sfValidatorDoctrineChoice(array('model' => 'DomainModel', 'column' => 'id', 'required' => false)),
       'concept_name' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
       'concept_slug' => new sfValidatorString(array('max_length' => 255)),
       'lft'          => new sfValidatorInteger(array('required' => false)),

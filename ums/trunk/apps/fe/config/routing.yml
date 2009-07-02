@@ -1,4 +1,12 @@
 # default rules
+
+domain:
+  url:   /domain.:sf_format
+  param: { module: domain, action: index}
+  requirements:
+    sf_method: [get]
+    sf_format: (?:html|xml)
+
 homepage:
   url:   /
   param: { module: default, action: index }
