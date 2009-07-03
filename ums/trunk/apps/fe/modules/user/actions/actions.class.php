@@ -17,6 +17,16 @@ class userActions extends sfActions
   */
   public function executeIndex(sfWebRequest $request)
   {
-    $this->forward('default', 'module');
+    $q = Doctrine_Query::create()
+          ->select('d.concept_name, um.*')
+          ->from('DomainModel d')
+          ->leftJoin('d.Concept um')
+          ->setHydrationMode(Doctrine::HYDRATE_ARRAY);
+
+
+$treeObject = Doctrine::getTable('DomainModel')->getTree();
+$treeObject->setBaseQuery($q);
+$this->tree = $treeObject->fetchTree();
+$treeObject->resetBaseQuery();
   }
 }

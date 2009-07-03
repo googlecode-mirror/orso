@@ -7,13 +7,9 @@ domain:
     sf_method: [get]
     sf_format: (?:html|xml)
 
-homepage:
-  url:   /
-  param: { module: default, action: index }
-
-default_index:
-  url:   /:module
-  param: { action: index }
-
-default:
-  url:   /:module/:action/*
+user:
+  url:  /usermodel/:id.:sf_format
+  param: { module: user, action: index }
+  requirements:
+    sf_method: [get]
+    sf_format: (?:html|xml)

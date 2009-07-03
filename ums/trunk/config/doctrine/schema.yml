@@ -2,4 +2,22 @@ DomainModel:
   actAs:  [NestedSet]
   columns:
     concept_name: {type: string(255)}
-    concept_slug:  {type: string(255), notnull: true, unique: true}
+    concept_slug: {type: string(255), notnull: true, unique: true}
+
+UserModel:
+  columns:
+    concept_id:           {type: integer, notnull: true}
+    user_id:              {type: integer, notnull: true}
+    bloom_evaluation:     {type: integer}
+    bloom_synthesis:      {type: integer}
+    bloom_analysis:       {type: integer}
+    bloom_application:    {type: integer}
+    bloom_understanding:  {type: integer}
+    bloom_knowledge:      {type: integer}
+  relations:
+    DomainModel: {local: concept_id, foreign: id, type: one, foreignType: one, foreignAlias: Concept}
+    User: {local: user_id, foreign: id, type: one, foreignType: one}
+
+User:
+  columns:
+    username:     {type: string(255), notnull: true, unique:true}

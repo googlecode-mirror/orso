@@ -1,0 +1,91 @@
+UserModel:
+  UserModel_Michele_concept1:
+    DomainModel:          Concept_1
+    User:                 Michele
+    bloom_evaluation:     10
+    bloom_synthesis:      10
+    bloom_analysis:       5
+    bloom_application:    20
+    bloom_understanding:  40
+    bloom_knowledge:      32
+  UserModel_Michele_concept2:
+    DomainModel:          Concept_2
+    User:                 Michele
+    bloom_evaluation:     10
+    bloom_synthesis:      10
+    bloom_analysis:       5
+    bloom_application:    20
+    bloom_understanding:  40
+    bloom_knowledge:      32
+  UserModel_Michele_concept2a:
+    DomainModel:          Concept_2a
+    User:                 Michele
+    bloom_evaluation:     10
+    bloom_synthesis:      10
+    bloom_analysis:       5
+    bloom_application:    20
+    bloom_understanding:  40
+    bloom_knowledge:      32
+  UserModel_Michele_concept2b:
+    DomainModel:          Concept_2b
+    User:                 Michele
+    bloom_evaluation:     10
+    bloom_synthesis:      10
+    bloom_analysis:       5
+    bloom_application:    20
+    bloom_understanding:  40
+    bloom_knowledge:      32
+  UserModel_Michele_concept2c:
+    DomainModel:          Concept_2c
+    User:                 Michele
+    bloom_evaluation:     10
+    bloom_synthesis:      10
+    bloom_analysis:       5
+    bloom_application:    20
+    bloom_understanding:  40
+    bloom_knowledge:      32
+  UserModel_Michele_concept2d:
+    DomainModel:          Concept_2d
+    User:                 Michele
+    bloom_evaluation:     10
+    bloom_synthesis:      10
+    bloom_analysis:       5
+    bloom_application:    20
+    bloom_understanding:  40
+    bloom_knowledge:      32
+  UserModel_Michele_concept2e:
+    DomainModel:          Concept_2e
+    User:                 Michele
+    bloom_evaluation:     10
+    bloom_synthesis:      10
+    bloom_analysis:       5
+    bloom_application:    20
+    bloom_understanding:  40
+    bloom_knowledge:      32
+  UserModel_Michele_concept2f:
+    DomainModel:          Concept_2f
+    User:                 Michele
+    bloom_evaluation:     10
+    bloom_synthesis:      10
+    bloom_analysis:       5
+    bloom_application:    20
+    bloom_understanding:  40
+    bloom_knowledge:      32
+  UserModel_Michele_concept2f:
+    DomainModel:          Concept_2g
+    User:                 Michele
+    bloom_evaluation:     10
+    bloom_synthesis:      10
+    bloom_analysis:       5
+    bloom_application:    20
+    bloom_understanding:  40
+    bloom_knowledge:      32
+  UserModel_Michele_concept3:
+    DomainModel:          Concept_3
+    User:                 Michele
+    bloom_evaluation:     10
+    bloom_synthesis:      10
+    bloom_analysis:       5
+    bloom_application:    20
+    bloom_understanding:  40
+    bloom_knowledge:      32

@@ -14,6 +14,9 @@ abstract class BaseDomainModel extends sfDoctrineRecord
 
     public function setUp()
     {
+        $this->hasOne('UserModel as Concept', array('local' => 'id',
+                                                    'foreign' => 'concept_id'));
+
         $nestedset0 = new Doctrine_Template_NestedSet();
         $this->actAs($nestedset0);
     }

@@ -24,27 +24,27 @@ DomainModel:
         concept_name: Programming Language Tools
         concept_slug: prog_lang_tools
         children:
-          Category_2a:
+          Concept_2a:
             concept_name: Java
             concept_slug: java
-          Category_2b:
+          Concept_2b:
             concept_name: JCA/JCE
             concept_slug: jcajce
-          Category_2c:
+          Concept_2c:
             concept_name: KeyPairGenerator
             concept_slug: keypairgen
-          Category_2d:
+          Concept_2d:
             concept_name: Cipher
             concept_slug: cipher
-          Category_2e:
+          Concept_2e:
             concept_name: Signature
             concept_slug: signature
-          Category_2f:
+          Concept_2f:
             concept_name: BCProvider
             concept_slug: bcprovider
-          Category_2g:
+          Concept_2g:
             concept_name: BigInteger
             concept_slug: bigint
-      Category_3:
+      Concept_3:
         concept_name: Security Technologies
         concept_slug: sec_tec
