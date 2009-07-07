@@ -12,9 +12,23 @@ class domainActions extends sfActions
 {
   public function executeIndex(sfWebRequest $request)
   {
-    $this->domain_model_list = Doctrine::getTable('DomainModel')
-      ->createQuery('a')
-      ->execute();
+    $treeObject = Doctrine::getTable('DomainModel')->getTree();
+    $tree = $treeObject->fetchRoot();
+
+    switch($request->getRequestFormat())
+    {
+      case 'xml':
+        $dumper = new domainModelXMLDumper($tree);
+        break;
+      case 'html':
+        $dumper = new domainModelHTMLDumper($tree);
+        break;
+      default:
+        return sfView::NONE;
+    }
+    
+    $this->domain_dump = $dumper->dump();
+    
   }
 
   public function executeShow(sfWebRequest $request)

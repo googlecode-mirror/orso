@@ -9,15 +9,13 @@ abstract class BaseDomainModel extends sfDoctrineRecord
     {
         $this->setTableName('domain_model');
         $this->hasColumn('concept_name', 'string', 255, array('type' => 'string', 'length' => '255'));
-        $this->hasColumn('concept_slug', 'string', 255, array('type' => 'string', 'notnull' => true, 'unique' => true, 'length' => '255'));
     }
 
     public function setUp()
     {
-        $this->hasOne('UserModel as Concept', array('local' => 'id',
-                                                    'foreign' => 'concept_id'));
-
         $nestedset0 = new Doctrine_Template_NestedSet();
+        $sluggable0 = new Doctrine_Template_Sluggable(array('unique' => true, 'fields' => array(0 => 'concept_name'), 'canUpdate' => true));
         $this->actAs($nestedset0);
+        $this->actAs($sluggable0);
     }
 }

@@ -5,5 +5,17 @@
  */
 class DomainModel extends BaseDomainModel
 {
+  public function accept(DomainModelVisitor $visitor)
+  {
+    $visitor->visitConcept($this);
 
+    if($this->getNode()->hasChildren())
+    {
+      foreach ($this->getNode()->getChildren() as $child)
+      {
+        $child->accept($visitor);
+      }
+    }
+
+  }
 }

@@ -5,5 +5,5 @@
  */
 class UserModel extends BaseUserModel
 {
-
+  
 }

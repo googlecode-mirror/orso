@@ -14,23 +14,23 @@ class BaseDomainModelForm extends BaseFormDoctrine
     $this->setWidgets(array(
       'id'           => new sfWidgetFormInputHidden(),
       'concept_name' => new sfWidgetFormInput(),
-      'concept_slug' => new sfWidgetFormInput(),
       'lft'          => new sfWidgetFormInput(),
       'rgt'          => new sfWidgetFormInput(),
       'level'        => new sfWidgetFormInput(),
+      'slug'         => new sfWidgetFormInput(),
     ));
 
     $this->setValidators(array(
       'id'           => new sfValidatorDoctrineChoice(array('model' => 'DomainModel', 'column' => 'id', 'required' => false)),
       'concept_name' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
-      'concept_slug' => new sfValidatorString(array('max_length' => 255)),
       'lft'          => new sfValidatorInteger(array('required' => false)),
       'rgt'          => new sfValidatorInteger(array('required' => false)),
       'level'        => new sfValidatorInteger(array('required' => false)),
+      'slug'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(
-      new sfValidatorDoctrineUnique(array('model' => 'DomainModel', 'column' => array('concept_slug')))
+      new sfValidatorDoctrineUnique(array('model' => 'DomainModel', 'column' => array('slug')))
     );
 
     $this->widgetSchema->setNameFormat('domain_model[%s]');
