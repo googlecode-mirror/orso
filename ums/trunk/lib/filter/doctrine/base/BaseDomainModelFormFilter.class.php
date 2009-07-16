@@ -18,7 +18,7 @@ class BaseDomainModelFormFilter extends BaseFormFilterDoctrine
       'lft'          => new sfWidgetFormFilterInput(),
       'rgt'          => new sfWidgetFormFilterInput(),
       'level'        => new sfWidgetFormFilterInput(),
-      'slug'         => new sfWidgetFormFilterInput(),
+      'concept_slug' => new sfWidgetFormFilterInput(),
     ));
 
     $this->setValidators(array(
@@ -26,7 +26,7 @@ class BaseDomainModelFormFilter extends BaseFormFilterDoctrine
       'lft'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'rgt'          => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
       'level'        => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'slug'         => new sfValidatorPass(array('required' => false)),
+      'concept_slug' => new sfValidatorPass(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('domain_model_filters[%s]');
@@ -49,7 +49,7 @@ class BaseDomainModelFormFilter extends BaseFormFilterDoctrine
       'lft'          => 'Number',
       'rgt'          => 'Number',
       'level'        => 'Number',
-      'slug'         => 'Text',
+      'concept_slug' => 'Text',
     );
   }
 }

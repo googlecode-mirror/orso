@@ -1,0 +1,13 @@
+User:
+  User_1:
+    username: mario
+    email: mario@studio.unibo.it
+    UserGroup: Gruppo_1
+  User_2:
+    username: giorgio
+    email: giorgio@libero.it
+    UserGroup: Gruppo_1
+  User_3:
+    username: veronica
+    email: veronica@studio.unibo.it
+    UserGroup: Gruppo_1

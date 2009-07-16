@@ -1,0 +1,16 @@
+DomainModel:
+  Concept_1:
+    concept_name: Security
+    children:
+      Concept_2:
+        concept_name: Programming Language Tools For Security
+        children:
+          Concept_3:
+            concept_name: Java
+            children:
+              Concept_4:
+                concept_name: Security Platform
+              Concept_5:
+                concept_name: Java Cryptography Extension
+              Concept_6:
+                concept_name: Security Provider

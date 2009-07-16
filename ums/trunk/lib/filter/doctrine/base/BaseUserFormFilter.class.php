@@ -15,10 +15,14 @@ class BaseUserFormFilter extends BaseFormFilterDoctrine
   {
     $this->setWidgets(array(
       'username' => new sfWidgetFormFilterInput(),
+      'email'    => new sfWidgetFormFilterInput(),
+      'group_id' => new sfWidgetFormDoctrineChoice(array('model' => 'UserGroup', 'add_empty' => true)),
     ));
 
     $this->setValidators(array(
       'username' => new sfValidatorPass(array('required' => false)),
+      'email'    => new sfValidatorPass(array('required' => false)),
+      'group_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => 'UserGroup', 'column' => 'id')),
     ));
 
     $this->widgetSchema->setNameFormat('user_filters[%s]');
@@ -38,6 +42,8 @@ class BaseUserFormFilter extends BaseFormFilterDoctrine
     return array(
       'id'       => 'Number',
       'username' => 'Text',
+      'email'    => 'Text',
+      'group_id' => 'ForeignKey',
     );
   }
 }

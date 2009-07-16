@@ -4,5 +4,25 @@
  */
 class DomainModelTable extends Doctrine_Table
 {
+    public function getUserModelByUsername($username, $asArray = false)
+    {
+        $q = Doctrine_Query::create()
+            ->select('d.concept_name, um.*')
+            ->from('DomainModel d')
+            ->leftJoin('d.Concept um')
+            ->where('User.id = um.user_id')
+            ->andWhere('User.username = ?', $username);
 
+        if ($asArray)
+        {
+         $q->setHydrationMode(Doctrine::HYDRATE_ARRAY);
+        }
+
+
+    $treeObject = Doctrine::getTable('DomainModel')->getTree();
+    $treeObject->setBaseQuery($q);
+    $tree = $treeObject->fetchTree();
+
+    return $tree;
+    }
 }

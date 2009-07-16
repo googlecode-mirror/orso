@@ -8,3 +8,29 @@ DomainModel:
       canUpdate: true
   columns:
     concept_name: {type: string(255)}
+
+UserModel:
+  columns:
+    concept_id:           {type: integer}
+    user_id:              {type: integer}
+    bloom_evaluation:     {type: integer}
+    bloom_synthesis:      {type: integer}
+    bloom_analysis:       {type: integer}
+    bloom_application:    {type: integer}
+    bloom_understanding:  {type: integer}
+    bloom_knowledge:      {type: integer}
+  relations:
+    DomainModel: {onDelete: CASCADE, local: concept_id, foreign: id, foreignAlias: Concept}
+    User:        {onDelete: CASCADE, local: user_id, foreign: id, foreignAlias: User}
+
+UserGroup:
+  columns:
+    name:     {type: string(255), unique: true}
+
+User:
+  columns:
+    username: {type: string(255), notnull: true, unique: true}
+    email:    {type: string(255), unique: true}
+    group_id: {type: integer}
+  relations:
+    UserGroup: {onDelete: CASCADE, local: group_id, foreign: id, foreignAlias: Group}

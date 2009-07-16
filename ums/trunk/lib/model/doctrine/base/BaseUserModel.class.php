@@ -8,8 +8,8 @@ abstract class BaseUserModel extends sfDoctrineRecord
     public function setTableDefinition()
     {
         $this->setTableName('user_model');
-        $this->hasColumn('concept_id', 'integer', null, array('type' => 'integer', 'notnull' => true));
-        $this->hasColumn('user_id', 'integer', null, array('type' => 'integer', 'notnull' => true));
+        $this->hasColumn('concept_id', 'integer', null, array('type' => 'integer'));
+        $this->hasColumn('user_id', 'integer', null, array('type' => 'integer'));
         $this->hasColumn('bloom_evaluation', 'integer', null, array('type' => 'integer'));
         $this->hasColumn('bloom_synthesis', 'integer', null, array('type' => 'integer'));
         $this->hasColumn('bloom_analysis', 'integer', null, array('type' => 'integer'));
@@ -21,9 +21,11 @@ abstract class BaseUserModel extends sfDoctrineRecord
     public function setUp()
     {
         $this->hasOne('DomainModel', array('local' => 'concept_id',
-                                           'foreign' => 'id'));
+                                           'foreign' => 'id',
+                                           'onDelete' => 'CASCADE'));
 
         $this->hasOne('User', array('local' => 'user_id',
-                                    'foreign' => 'id'));
+                                    'foreign' => 'id',
+                                    'onDelete' => 'CASCADE'));
     }
 }

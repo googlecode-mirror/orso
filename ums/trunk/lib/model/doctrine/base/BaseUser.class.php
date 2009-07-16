@@ -9,11 +9,17 @@ abstract class BaseUser extends sfDoctrineRecord
     {
         $this->setTableName('user');
         $this->hasColumn('username', 'string', 255, array('type' => 'string', 'notnull' => true, 'unique' => true, 'length' => '255'));
+        $this->hasColumn('email', 'string', 255, array('type' => 'string', 'unique' => true, 'length' => '255'));
+        $this->hasColumn('group_id', 'integer', null, array('type' => 'integer'));
     }
 
     public function setUp()
     {
-        $this->hasOne('UserModel', array('local' => 'id',
-                                         'foreign' => 'user_id'));
+        $this->hasOne('UserGroup', array('local' => 'group_id',
+                                         'foreign' => 'id',
+                                         'onDelete' => 'CASCADE'));
+
+        $this->hasMany('UserModel as User', array('local' => 'id',
+                                                  'foreign' => 'user_id'));
     }
 }

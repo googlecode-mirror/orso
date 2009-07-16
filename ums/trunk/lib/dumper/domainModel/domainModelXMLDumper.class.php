@@ -10,7 +10,7 @@
 
 class domainModelXMLDumper extends domainModelDumper
 {
-  private $result = '';
+  protected $result = '';
 
   public function dump()
   {
@@ -26,7 +26,7 @@ class domainModelXMLDumper extends domainModelDumper
 
   protected function addConcept($node)
   {
-    $this->result .= '<concept name="'.$node['concept_name'].'" slug="'.$node['slug'].'">';
+    $this->result .= '<concept name="'.$node['concept_name'].'" slug="'.$node['concept_slug'].'">';
     if($node->getNode()->isLeaf())
     {
       $this->result .= '</concept>';

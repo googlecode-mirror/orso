@@ -17,7 +17,7 @@ class BaseDomainModelForm extends BaseFormDoctrine
       'lft'          => new sfWidgetFormInput(),
       'rgt'          => new sfWidgetFormInput(),
       'level'        => new sfWidgetFormInput(),
-      'slug'         => new sfWidgetFormInput(),
+      'concept_slug' => new sfWidgetFormInput(),
     ));
 
     $this->setValidators(array(
@@ -26,7 +26,7 @@ class BaseDomainModelForm extends BaseFormDoctrine
       'lft'          => new sfValidatorInteger(array('required' => false)),
       'rgt'          => new sfValidatorInteger(array('required' => false)),
       'level'        => new sfValidatorInteger(array('required' => false)),
-      'slug'         => new sfValidatorString(array('max_length' => 255, 'required' => false)),
+      'concept_slug' => new sfValidatorString(array('max_length' => 255, 'required' => false)),
     ));
 
     $this->validatorSchema->setPostValidator(

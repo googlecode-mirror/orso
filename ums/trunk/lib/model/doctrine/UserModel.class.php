@@ -5,5 +5,8 @@
  */
 class UserModel extends BaseUserModel
 {
-  
+  public function getUsername()
+  {
+      return $this->User->username;
+  }
 }

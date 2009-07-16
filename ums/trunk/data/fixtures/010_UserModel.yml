@@ -1,0 +1,23 @@
+UserModel:
+<?php for($i = 1; $i<121; $i++): ?>
+  UserModel_AltobelliAndrea_<?php echo $i; ?>:
+    DomainModel: Concept_<?php echo $i."\n"; ?>
+    User:        AltobelliAndrea
+    bloom_evaluation:     <?php echo rand(0,100)."\n"; ?>
+    bloom_synthesis:      <?php echo rand(0,100)."\n"; ?>
+    bloom_analysis:       <?php echo rand(0,100)."\n"; ?>
+    bloom_application:    <?php echo rand(0,100)."\n"; ?>
+    bloom_understanding:  <?php echo rand(0,100)."\n"; ?>
+    bloom_knowledge:      <?php echo rand(0,100)."\n"; ?>
+<?php endfor; ?>
+<?php for($i = 1; $i<121; $i++): ?>
+  UserModel_BiagiDaniele_<?php echo $i; ?>:
+    DomainModel: Concept_<?php echo $i."\n"; ?>
+    User:        BiagiDaniele
+    bloom_evaluation:     <?php echo rand(0,100)."\n"; ?>
+    bloom_synthesis:      <?php echo rand(0,100)."\n"; ?>
+    bloom_analysis:       <?php echo rand(0,100)."\n"; ?>
+    bloom_application:    <?php echo rand(0,100)."\n"; ?>
+    bloom_understanding:  <?php echo rand(0,100)."\n"; ?>
+    bloom_knowledge:      <?php echo rand(0,100)."\n"; ?>
+<?php endfor; ?>

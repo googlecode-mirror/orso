@@ -23,6 +23,12 @@ class domainActions extends sfActions
       case 'html':
         $dumper = new domainModelHTMLDumper($tree);
         break;
+      case 'json':
+        $dumper = new domainModelJsonDumper($tree);
+        break;
+      case 'dot':
+        $dumper = new domainModelGraphvizDumper($tree);
+        break;
       default:
         return sfView::NONE;
     }
@@ -61,13 +67,17 @@ class domainActions extends sfActions
 
   public function executeUpdate(sfWebRequest $request)
   {
-    $this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
-    $this->forward404Unless($domain_model = Doctrine::getTable('DomainModel')->find(array($request->getParameter('concept_id'))), sprintf('Object domain_model does not exist (%s).', array($request->getParameter('concept_id'))));
-    $this->form = new DomainModelForm($domain_model);
 
-    $this->processForm($request, $this->form);
+    $this->concept = $this->getRoute()->getObject();
+    $this->concept->concept_name = $request->getParameter('concept_name');
+    $this->concept->save();
 
-    $this->setTemplate('edit');
+    #$this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));
+    #$this->forward404Unless($domain_model = Doctrine::getTable('DomainModel')->find(array($request->getParameter('concept_id'))), sprintf('Object domain_model does not exist (%s).', array($request->getParameter('concept_id'))));
+    #$this->form = new DomainModelForm($domain_model);
+
+    #$this->processForm($request, $this->form);
+
   }
 
   public function executeDelete(sfWebRequest $request)

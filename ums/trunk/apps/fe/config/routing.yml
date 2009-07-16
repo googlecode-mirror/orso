@@ -5,11 +5,48 @@ domain:
   param: { module: domain, action: index}
   requirements:
     sf_method: [get]
-    sf_format: (?:html|xml)
+    sf_format: (?:html|xml|json|dot)
 
-user:
-  url:  /usermodel/:id.:sf_format
-  param: { module: user, action: index }
+domainUpdateById:
+  url:      /domain/concept/:concept_id/*
+  class:    sfDoctrineRoute
+  options:  { model: DomainModel, type: object }
+  param:    { module: domain, action: update}
+  requirements:
+    sf_method: [get, put]
+    concept_id: \d+
+
+domainUpdateBySlug:
+  url:      /domain/concept/:concept_slug/*
+  param:    { module: domain, action: update}
+  class: sfDoctrineRoute
+  options:  { model: DomainModel, type: object }
+  requirements:
+    sf_method: [get, put]
+    concept_slug: \w+
+
+
+userModel:
+  url:  /usermodel/:username.:sf_format
+  param: { module: userModel, action: index}
+  requirements:
+    sf_method: [get]
+    sf_format: (?:xml)
+
+userModelPart:
+  url: /usermodel/:id/concept/:concept_id.:sf_format
+  param: { module: userModel, action: index}
   requirements:
     sf_method: [get]
     sf_format: (?:html|xml)
+
+updateUserModelPart:
+  url: /usermodel/:id/concept/:concept_id.:sf_format
+  class: sfDoctrineRoute
+  options: {model: UserModel, type: object}
+  param:
+    module: userModel
+    action: update
+  requirements:
+    sf_method: [put]
+    sf_format: (?:html)

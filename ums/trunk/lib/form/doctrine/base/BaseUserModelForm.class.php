@@ -13,8 +13,8 @@ class BaseUserModelForm extends BaseFormDoctrine
   {
     $this->setWidgets(array(
       'id'                  => new sfWidgetFormInputHidden(),
-      'concept_id'          => new sfWidgetFormDoctrineChoice(array('model' => 'DomainModel', 'add_empty' => false)),
-      'user_id'             => new sfWidgetFormDoctrineChoice(array('model' => 'User', 'add_empty' => false)),
+      'concept_id'          => new sfWidgetFormDoctrineChoice(array('model' => 'DomainModel', 'add_empty' => true)),
+      'user_id'             => new sfWidgetFormDoctrineChoice(array('model' => 'User', 'add_empty' => true)),
       'bloom_evaluation'    => new sfWidgetFormInput(),
       'bloom_synthesis'     => new sfWidgetFormInput(),
       'bloom_analysis'      => new sfWidgetFormInput(),
@@ -25,8 +25,8 @@ class BaseUserModelForm extends BaseFormDoctrine
 
     $this->setValidators(array(
       'id'                  => new sfValidatorDoctrineChoice(array('model' => 'UserModel', 'column' => 'id', 'required' => false)),
-      'concept_id'          => new sfValidatorDoctrineChoice(array('model' => 'DomainModel')),
-      'user_id'             => new sfValidatorDoctrineChoice(array('model' => 'User')),
+      'concept_id'          => new sfValidatorDoctrineChoice(array('model' => 'DomainModel', 'required' => false)),
+      'user_id'             => new sfValidatorDoctrineChoice(array('model' => 'User', 'required' => false)),
       'bloom_evaluation'    => new sfValidatorInteger(array('required' => false)),
       'bloom_synthesis'     => new sfValidatorInteger(array('required' => false)),
       'bloom_analysis'      => new sfValidatorInteger(array('required' => false)),
