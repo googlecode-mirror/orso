@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <title>UMS - User Modeling Server</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <h1>User Modeling Server:</h1>
+
+    <h2>Domain Model:</h2>
+    <ul>
+      <li>lettura del domain model:
+        <a href="./index.php/domain.html">html</a> |
+        <a href="./index.php/domain.xml">xml</a> |
+        <a href="./index.php/domain.json">json</a>
+        <!-- a href="http://index.php/domain.html">html</a -->
+      </li>
+      <li>modifica del domain model:</li>
+      <pre>
+        url: /domain/concept/:concept_id
+        parametri:
+         concept_name: il nuovo nome per l'elemento del dominio
+         concept_slug: in nuovo slug per l'elemento del dominio
+        tipo di richiesta: PUT / POST
+
+        esempio: per modificare l'elemento di dominio con slug 'security' la richiesta sarà:
+        /domain/concept/1453
+       </pre>
+        <form name="concept" action="./index.php/domain/concept/1453" method="POST">
+          <label for="concept_name">Nome: </label> <input type="text" name="concept_name" id="concept_name" value="" />
+          <label for="concept_slug">Slug: </label><input type="text" name="concept_slug" id="concept_slug" value="" />
+          <input type="submit" value="Modifica" />
+        </form>
+    </ul>
+
+    <h2>User Model</h2>
+    <ul>
+      <li>lettura del user model:
+       <pre>
+        url: /usermodel/:username.[formato]
+
+       esempio: per leggere lo usermodel dell'utente aaltobelli
+       </pre>
+       <a href="./index.php/usermodel/aaltobelli.xml">/usermodel/aaltobelli.xml</a>
+      </li>
+      <li>lettura di una parte di user model:
+       <pre>
+        url: /usermodel/:username/concept/concept_slug.[formato]
+
+        esempio: per leggere lo usermodel dell'utente aaltobelli
+       </pre>
+       <a href="./index.php/usermodel/aaltobelli/concept/cryptology.xml">/usermodel/aaltobelli/concept/cryptology.xml</a>
+      </li>
+      <li>modifica dei livelli di conoscenza del domino:
+        <pre>
+        url: /usermodel/:username/concept/concept_slug
+        parametri:
+         bloom_evaluation:
+         bloom_synthesis:
+         bloom_analysis:
+         bloom_application:
+         bloom_understanding:
+         bloom_knowledge:
+
+         concept_slug: in nuovo slug per l'elemento del dominio
+        tipo di richiesta: PUT / POST
+
+        esempio: per modificare i livelli di conoscenza dell' utente aaltobelli per il concetto con slug 'classical-cryptanalysis' la richiesta sarà:
+        /usermodel/aaltobelli/concept/classical-cryptanalysis
+       </pre>
+        <form name="concept" action="./index.php/usermodel/aaltobelli/concept/classical-cryptanalysis" method="POST">
+          <label for="bloom_evaluation"> Evaluation:</label> <input type="text" name="bloom_evaluation" id="bloom_evaluation" /><br/>
+          <label for="bloom_synthesis"> Synthesis:</label> <input type="text" name="bloom_synthesis" id="bloom_synthesis"/><br/>
+          <label for="bloom_analysis"> Analysis: </label> <input type="text" name="bloom_analysis" /><br/>
+          <label for="bloom_application"> Application: </label> <input type="text" name="bloom_application" /><br/>
+          <label for="bloom_understanding"> Understanding: </label> <input type="text" name="bloom_understanding" /><br/>
+          <label for="bloom_knowledge"> Knowledge: </label> <input type="text" name="bloom_knowledge" /><br/>
+          <input type="submit" value="Modifica" />
+        </form>
+      </li>
+    </ul>
+    <h2>Activity</h2>
+    <ul>
+      <li>tutti i concetti associati alle attività</li>
+    </ul>
+    <h2>Tutte le funzioni da implementare:</h2>
+    <ul>
+    <li>leggere il domain model</li>
+    <li>modificare il domain model (per ora solo i nomi ma non la struttura)</li>
+    </ul>
+  </body>
+</html>

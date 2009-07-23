@@ -34,3 +34,19 @@ User:
     group_id: {type: integer}
   relations:
     UserGroup: {onDelete: CASCADE, local: group_id, foreign: id, foreignAlias: Group}
+
+Activity:
+  columns:
+    name:       {type: string(255)}
+    type:       {type: enum, values: ['reading', 'exercise', 'test']}
+    weight:     {type: float}
+  relations:
+    DomainModel: {onDelete: CASCADE, class: DomainModel, refClass: ActivityConcept, foreign: concept_id, local: activity_id}
+
+ActivityConcept:
+  columns:
+    activity_id:  { type: integer, primary: true }
+    concept_id:   { type: integer, primary: true }
+  relations:
+    DomainModel:  { onDelete: CASCADE, local: concept_id, foreign: id }
+    Activity:     { onDelete: CASCADE, local: activity_id, foreign: id }

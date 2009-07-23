@@ -1,0 +1,26 @@
+Activity:
+  Activity_1:
+    name: General Introduction
+    type: reading
+    DomainModel: [Concept_1, Concept_2, Concept_3, Concept_4, Concept_5, Concept_6]
+    weight: 0.25
+  Activity_2:
+    name: Java Classes Exercise
+    type: exercise
+    DomainModel: [Concept_3, Concept_4, Concept_5, Concept_6]
+    weight: 0.1
+  Activity_3:
+    name: Java API Exercise
+    type: exercise
+    DomainModel: [Concept_4, Concept_5, Concept_6]
+    weight: 0.9
+  Activity_4:
+    name: Java API Docs
+    type: reading
+    DomainModel: [Concept_3, Concept_4, Concept_5, Concept_6]
+    weight: 0.3
+  Activity_5:
+    name: Tools
+    type: test
+    DomainModel: [Concept_2, Concept_4, Concept_5]
+    weight: 0.7

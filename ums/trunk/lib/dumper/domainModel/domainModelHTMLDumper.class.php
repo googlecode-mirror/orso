@@ -26,7 +26,7 @@ class domainModelHTMLDumper extends domainModelDumper
 
   protected function addConcept($node)
   {
-    $this->result .= '<li>'.$node['concept_name'].'</li>';
+    $this->result .= '<li>'.$node['concept_name'].' (id '.$node['id'].', slug: '.$node['concept_slug'].')</li>';
     if($node->getNode()->isLeaf())
     {
       return;

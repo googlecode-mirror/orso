@@ -38,13 +38,49 @@ class userModelActions extends sfActions
     
   }
 
+ 
+
+  public function executeShow(sfWebRequest $request)
+  {
+    $q = Doctrine_Query::create()
+          ->select('d.concept_name, um.*')
+          ->from('DomainModel d')
+          ->leftJoin('d.Concept um')
+          ->where('d.concept_slug = ?', $request->getParameter('concept_slug'))
+          ->andWhere('User.id = um.user_id')
+          ->andWhere('User.username = ?', $request->getParameter('username'))
+          ->setHydrationMode(Doctrine::HYDRATE_ARRAY);
+
+   $domain_model = $q->execute();
+
+   $dumper = userModelDumperFactory::getDumperFor($request->getRequestFormat());
+   $this->domain_dump = $dumper->dump($domain_model);
+
+   #$this->domain_model = Doctrine::getTable('DomainModel')->find(array('user_id' => $request->getParameter('concept_id')));
+  }
+
   public function executeUpdate(sfWebRequest $request)
   {
-    $obj = $this->getRoute()->getObject();
-    
-    $this->obj = $obj;
+    $q = Doctrine_Query::create()
+          ->select('d.concept_name, um.*')
+          ->from('UserModel um')
+          ->leftJoin('um.DomainModel d')
+          ->where('d.concept_slug = ?', $request->getParameter('concept_slug'))
+          ->andWhere('User.id = um.user_id')
+          ->andWhere('User.username = ?', $request->getParameter('username'));
 
+   $domain_model = $q->fetchOne();
     
+    $domain_model->bloom_evaluation     = $request->hasParameter('bloom_evaluation') ? $request->getParameter('bloom_evaluation') : $domain_model->bloom_evaluation;
+    $domain_model->bloom_analysis       = $request->hasParameter('bloom_analysis') ? $request->getParameter('bloom_analysis') : $domain_model->bloom_analysis;
+    $domain_model->bloom_synthesis      = $request->hasParameter('bloom_synthesis') ? $request->getParameter('bloom_synthesis') : $domain_model->bloom_synthesis;
+    $domain_model->bloom_application    = $request->hasParameter('bloom_application') ? $request->getParameter('bloom_application') : $domain_model->bloom_application;
+    $domain_model->bloom_understanding  = $request->hasParameter('bloom_understanding') ? $request->getParameter('bloom_understanding') : $domain_model->bloom_understanding;
+    $domain_model->bloom_knowledge      = $request->hasParameter('bloom_knowledge') ? $request->getParameter('bloom_knowledge') : $domain_model->bloom_knowledge;
+
+    $domain_model->save();
+
+    $this->domain_model = $domain_model;
 
   }
 

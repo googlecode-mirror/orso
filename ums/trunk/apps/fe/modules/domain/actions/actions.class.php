@@ -37,6 +37,12 @@ class domainActions extends sfActions
     
   }
 
+ public function executeActivity(sfWebRequest $request)
+  {
+    $tree = Doctrine::getTable('DomainModel')->getTree();
+    $this->domain_model = $tree->fetchTree();
+  }
+  
   public function executeShow(sfWebRequest $request)
   {
     $this->domain_model = Doctrine::getTable('DomainModel')->find(array($request->getParameter('concept_id')));
@@ -69,7 +75,9 @@ class domainActions extends sfActions
   {
 
     $this->concept = $this->getRoute()->getObject();
+
     $this->concept->concept_name = $request->getParameter('concept_name');
+    $this->concept->concept_slug = $request->getParameter('concept_slug');
     $this->concept->save();
 
     #$this->forward404Unless($request->isMethod('post') || $request->isMethod('put'));

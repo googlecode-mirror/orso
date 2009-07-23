@@ -16,6 +16,13 @@ abstract class BaseDomainModel extends sfDoctrineRecord
         $this->hasMany('UserModel as Concept', array('local' => 'id',
                                                      'foreign' => 'concept_id'));
 
+        $this->hasMany('Activity', array('refClass' => 'ActivityConcept',
+                                         'local' => 'concept_id',
+                                         'foreign' => 'activity_id'));
+
+        $this->hasMany('ActivityConcept', array('local' => 'id',
+                                                'foreign' => 'concept_id'));
+
         $nestedset0 = new Doctrine_Template_NestedSet();
         $sluggable0 = new Doctrine_Template_Sluggable(array('unique' => true, 'fields' => array(0 => 'concept_name'), 'alias' => 'concept_slug', 'canUpdate' => true));
         $this->actAs($nestedset0);
