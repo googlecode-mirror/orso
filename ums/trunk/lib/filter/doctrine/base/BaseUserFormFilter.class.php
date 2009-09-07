@@ -14,15 +14,15 @@ class BaseUserFormFilter extends BaseFormFilterDoctrine
   public function setup()
   {
     $this->setWidgets(array(
-      'username' => new sfWidgetFormFilterInput(),
-      'email'    => new sfWidgetFormFilterInput(),
-      'group_id' => new sfWidgetFormDoctrineChoice(array('model' => 'UserGroup', 'add_empty' => true)),
+      'username'   => new sfWidgetFormFilterInput(),
+      'email'      => new sfWidgetFormFilterInput(),
+      'group_list' => new sfWidgetFormDoctrineChoiceMany(array('model' => 'Group')),
     ));
 
     $this->setValidators(array(
-      'username' => new sfValidatorPass(array('required' => false)),
-      'email'    => new sfValidatorPass(array('required' => false)),
-      'group_id' => new sfValidatorDoctrineChoice(array('required' => false, 'model' => 'UserGroup', 'column' => 'id')),
+      'username'   => new sfValidatorPass(array('required' => false)),
+      'email'      => new sfValidatorPass(array('required' => false)),
+      'group_list' => new sfValidatorDoctrineChoiceMany(array('model' => 'Group', 'required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('user_filters[%s]');
@@ -30,6 +30,22 @@ class BaseUserFormFilter extends BaseFormFilterDoctrine
     $this->errorSchema = new sfValidatorErrorSchema($this->validatorSchema);
 
     parent::setup();
+  }
+
+  public function addGroupListColumnQuery(Doctrine_Query $query, $field, $values)
+  {
+    if (!is_array($values))
+    {
+      $values = array($values);
+    }
+
+    if (!count($values))
+    {
+      return;
+    }
+
+    $query->leftJoin('r.UserGroup UserGroup')
+          ->andWhereIn('UserGroup.group_id', $values);
   }
 
   public function getModelName()
@@ -40,10 +56,10 @@ class BaseUserFormFilter extends BaseFormFilterDoctrine
   public function getFields()
   {
     return array(
-      'id'       => 'Number',
-      'username' => 'Text',
-      'email'    => 'Text',
-      'group_id' => 'ForeignKey',
+      'id'         => 'Number',
+      'username'   => 'Text',
+      'email'      => 'Text',
+      'group_list' => 'ManyKey',
     );
   }
 }

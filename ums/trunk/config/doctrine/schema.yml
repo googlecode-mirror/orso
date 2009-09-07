@@ -23,17 +23,22 @@ UserModel:
     DomainModel: {onDelete: CASCADE, local: concept_id, foreign: id, foreignAlias: Concept}
     User:        {onDelete: CASCADE, local: user_id, foreign: id, foreignAlias: User}
 
-UserGroup:
+Group:
+  tableName: groups
   columns:
     name:     {type: string(255), unique: true}
+  relations:
+    Users: {onDelete: CASCADE, class: User, refClass: UserGroup}
 
 User:
   columns:
     username: {type: string(255), notnull: true, unique: true}
     email:    {type: string(255), unique: true}
-    group_id: {type: integer}
-  relations:
-    UserGroup: {onDelete: CASCADE, local: group_id, foreign: id, foreignAlias: Group}
+
+UserGroup:
+  columns:
+    user_id:  {type: integer, primary: true }
+    group_id: {type: integer, primary: true }
 
 Activity:
   columns:
@@ -45,8 +50,9 @@ Activity:
 
 ActivityConcept:
   columns:
-    activity_id:  { type: integer, primary: true }
-    concept_id:   { type: integer, primary: true }
+    activity_id:  {type: integer, primary: true }
+    concept_id:   {type: integer, primary: true }
+    weight:       {type: integer}
   relations:
-    DomainModel:  { onDelete: CASCADE, local: concept_id, foreign: id }
-    Activity:     { onDelete: CASCADE, local: activity_id, foreign: id }
+    DomainModel:  {onDelete: CASCADE, local: concept_id, foreign: id }
+    Activity:     {onDelete: CASCADE, local: activity_id, foreign: id }

@@ -1,0 +1,38 @@
+group_group:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                Group
+    module:               group
+    prefix_path:          group
+    column:               id
+    with_wildcard_routes: true
+
+user_user:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                User
+    module:               user
+    prefix_path:          user
+    column:               id
+    with_wildcard_routes: true
+
+domain_model:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                DomainModel
+    module:               domain
+    prefix_path:          domain
+    column:               id
+    with_wildcard_routes: true
+
+# default rules
+homepage:
+  url:   /
+  param: { module: domain, action: index }
+
+default_index:
+  url:   /:module
+  param: { action: index }
+
+default:
+  url:   /:module/:action/*

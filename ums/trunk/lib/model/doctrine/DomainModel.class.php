@@ -5,17 +5,21 @@
  */
 class DomainModel extends BaseDomainModel
 {
-  public function accept(DomainModelVisitor $visitor)
+    public function getParentId()
   {
-    $visitor->visitConcept($this);
-
-    if($this->getNode()->hasChildren())
+    if (!$this->getNode()->isValidNode() || $this->getNode()->isRoot())
     {
-      foreach ($this->getNode()->getChildren() as $child)
-      {
-        $child->accept($visitor);
-      }
+      return null;
     }
 
+    $parent = $this->getNode()->getParent();
+
+    return $parent['id'];
   }
+
+  public function getIndentedName()
+  {
+    return str_repeat('- ',$this['level']).$this['concept_name'];
+  }
+
 }
