@@ -27,9 +27,12 @@
           <li>
             <?php echo link_to('Users', '@user_user') ?>
           </li>
+          <li>
+            <?php echo link_to('Activity', '@activity_activity') ?>
+          </li>
         </ul>
       </div>
-
     <?php echo $sf_content ?>
+    </div>
   </body>
 </html>

@@ -22,4 +22,14 @@ class DomainModel extends BaseDomainModel
     return str_repeat('- ',$this['level']).$this['concept_name'];
   }
 
+  public function getConceptNames()
+  {
+    print_r(Doctrine::getTable('DomainModel')->getConceptNames());
+    return Doctrine::getTable('DomainModel')->getConceptNames();
+  }
+
+  public function __toString()
+  {
+      return $this['concept_name'];
+  }
 }

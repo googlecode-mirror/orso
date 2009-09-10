@@ -280,7 +280,7 @@ abstract class sfFormDoctrine extends sfForm
       {
         // save files
         if ($this->validatorSchema[$field] instanceof sfValidatorFile)
-        {
+        { 
           $values[$field] = $this->processUploadedFile($field, null, $valuesToProcess);
         }
       }

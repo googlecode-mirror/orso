@@ -43,10 +43,16 @@ UserGroup:
 Activity:
   columns:
     name:       {type: string(255)}
-    type:       {type: enum, values: ['reading', 'exercise', 'test']}
-    weight:     {type: float}
+    type:       {type: enum, values: ['reading']}
+    filename:   {type: string(255)}
   relations:
-    DomainModel: {onDelete: CASCADE, class: DomainModel, refClass: ActivityConcept, foreign: concept_id, local: activity_id}
+    DomainModel:  {onDelete: CASCADE, class: DomainModel, refClass: ActivityConcept, foreign: concept_id, local: activity_id}
+    #SubActivity:  {onDelete: CASCADE, class: Activity, refClass: ActivitySubActivity, foreign: child_id, local: parent_id}
+
+#ActivitySubActivity:
+#  columns:
+#    parent_id:  {type: integer, primary: true}
+#    child_id:   {type: integer, primary: true}
 
 ActivityConcept:
   columns:

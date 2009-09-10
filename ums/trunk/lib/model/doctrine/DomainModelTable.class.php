@@ -24,5 +24,14 @@ class DomainModelTable extends Doctrine_Table
 
   return $tree;
   }
-  
+
+public function getConceptNames()
+  {
+    $q = $this->createQuery()
+        ->select('d.concept_name')
+        ->from('DomainModel d')
+        ->fetchArray();
+
+    return $q;
+  }
 }
