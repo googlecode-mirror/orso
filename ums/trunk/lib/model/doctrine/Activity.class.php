@@ -5,4 +5,8 @@
  */
 class Activity extends BaseActivity
 {
+    public function __toString()
+    {
+        return $this['name'];
+    }
 }

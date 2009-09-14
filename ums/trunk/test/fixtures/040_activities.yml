@@ -3,6 +3,7 @@ Activity:
     name: Introduzione al corso
     type: reading
     DomainModel: [Concept_1, Concept_2]
+    SubActivity: [Activity_4]
   Activity_2:
     name: Crittografia a chiave pubblica
     type: reading

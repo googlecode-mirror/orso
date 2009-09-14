@@ -13,12 +13,12 @@ UserModel:
   columns:
     concept_id:           {type: integer}
     user_id:              {type: integer}
-    bloom_evaluation:     {type: integer}
-    bloom_synthesis:      {type: integer}
-    bloom_analysis:       {type: integer}
-    bloom_application:    {type: integer}
-    bloom_understanding:  {type: integer}
-    bloom_knowledge:      {type: integer}
+    bloom_evaluation:     {type: float}
+    bloom_synthesis:      {type: float}
+    bloom_analysis:       {type: float}
+    bloom_application:    {type: float}
+    bloom_understanding:  {type: float}
+    bloom_knowledge:      {type: float}
   relations:
     DomainModel: {onDelete: CASCADE, local: concept_id, foreign: id, foreignAlias: Concept}
     User:        {onDelete: CASCADE, local: user_id, foreign: id, foreignAlias: User}
@@ -43,22 +43,34 @@ UserGroup:
 Activity:
   columns:
     name:       {type: string(255)}
-    type:       {type: enum, values: ['reading']}
+    type:       {type: enum, values: ['reading', 'exercise', 'quiz', 'worked example']}
     filename:   {type: string(255)}
   relations:
     DomainModel:  {onDelete: CASCADE, class: DomainModel, refClass: ActivityConcept, foreign: concept_id, local: activity_id}
-    #SubActivity:  {onDelete: CASCADE, class: Activity, refClass: ActivitySubActivity, foreign: child_id, local: parent_id}
+    SubActivity:  {onDelete: CASCADE, class: Activity, refClass: ActivitySubActivity, foreign: child_id, local: parent_id}
 
-#ActivitySubActivity:
-#  columns:
-#    parent_id:  {type: integer, primary: true}
-#    child_id:   {type: integer, primary: true}
+ActivitySubActivity:
+  columns:
+    parent_id:  {type: integer, primary: true}
+    child_id:   {type: integer, primary: true}
 
 ActivityConcept:
   columns:
     activity_id:  {type: integer, primary: true }
     concept_id:   {type: integer, primary: true }
-    weight:       {type: integer}
+    bloom_evaluation:     {type: float}
+    bloom_synthesis:      {type: float}
+    bloom_analysis:       {type: float}
+    bloom_application:    {type: float}
+    bloom_understanding:  {type: float}
+    bloom_knowledge:      {type: float}
   relations:
     DomainModel:  {onDelete: CASCADE, local: concept_id, foreign: id }
     Activity:     {onDelete: CASCADE, local: activity_id, foreign: id }
+
+UserActivity:
+  columns:
+    user_id:      {type: integer, primary: true}
+    group_id:     {type: integer}
+    activity_id:  {type: integer}
+    progress:     {type: integer, default: 0}

@@ -27,12 +27,12 @@ class BaseUserModelForm extends BaseFormDoctrine
       'id'                  => new sfValidatorDoctrineChoice(array('model' => 'UserModel', 'column' => 'id', 'required' => false)),
       'concept_id'          => new sfValidatorDoctrineChoice(array('model' => 'DomainModel', 'required' => false)),
       'user_id'             => new sfValidatorDoctrineChoice(array('model' => 'User', 'required' => false)),
-      'bloom_evaluation'    => new sfValidatorInteger(array('required' => false)),
-      'bloom_synthesis'     => new sfValidatorInteger(array('required' => false)),
-      'bloom_analysis'      => new sfValidatorInteger(array('required' => false)),
-      'bloom_application'   => new sfValidatorInteger(array('required' => false)),
-      'bloom_understanding' => new sfValidatorInteger(array('required' => false)),
-      'bloom_knowledge'     => new sfValidatorInteger(array('required' => false)),
+      'bloom_evaluation'    => new sfValidatorNumber(array('required' => false)),
+      'bloom_synthesis'     => new sfValidatorNumber(array('required' => false)),
+      'bloom_analysis'      => new sfValidatorNumber(array('required' => false)),
+      'bloom_application'   => new sfValidatorNumber(array('required' => false)),
+      'bloom_understanding' => new sfValidatorNumber(array('required' => false)),
+      'bloom_knowledge'     => new sfValidatorNumber(array('required' => false)),
     ));
 
     $this->widgetSchema->setNameFormat('user_model[%s]');

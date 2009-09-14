@@ -14,7 +14,7 @@ class BeActivityForm extends ActivityForm
     $filename = $this->getObject()->getData();
     $this->widgetSchema['filename'] = new sfWidgetFormInputFileEditable(array(
       'label'     => 'File',
-      'file_src'  => '/uploads/activity/'.$filename['filename'],
+      'file_src'  => '/uploads/materiale/'.$filename['filename'],
       'is_image'  => false,
       'edit_mode' => !$this->isNew(),
     ));

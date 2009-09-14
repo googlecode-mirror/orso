@@ -1,3 +1,12 @@
+activity_concept_activity2concept:
+  class: sfDoctrineRouteCollection
+  options:
+    model:                ActivityConcept
+    module:               activity2concept
+    prefix_path:          activity2concept
+    column:               activity_id
+    with_wildcard_routes: true
+
 activity_activity:
   class: sfDoctrineRouteCollection
   options:

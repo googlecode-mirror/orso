@@ -30,6 +30,9 @@
           <li>
             <?php echo link_to('Activity', '@activity_activity') ?>
           </li>
+          <li>
+            <?php echo link_to('Activity2Concept', '@activity_concept_activity2concept') ?>
+          </li>
         </ul>
       </div>
     <?php echo $sf_content ?>

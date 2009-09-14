@@ -8,7 +8,7 @@ domain:
     sf_format: (?:html|xml|json|dot)
 
 domainActivity:
-  url:  /domainActivity.:sf_format
+  url:  /domain/activity.:sf_format
   param: { module: domain, action: activity}
   requirements:
     sf_method: [get]

@@ -27,12 +27,12 @@ class BaseUserModelFormFilter extends BaseFormFilterDoctrine
     $this->setValidators(array(
       'concept_id'          => new sfValidatorDoctrineChoice(array('required' => false, 'model' => 'DomainModel', 'column' => 'id')),
       'user_id'             => new sfValidatorDoctrineChoice(array('required' => false, 'model' => 'User', 'column' => 'id')),
-      'bloom_evaluation'    => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'bloom_synthesis'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'bloom_analysis'      => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'bloom_application'   => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'bloom_understanding' => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
-      'bloom_knowledge'     => new sfValidatorSchemaFilter('text', new sfValidatorInteger(array('required' => false))),
+      'bloom_evaluation'    => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
+      'bloom_synthesis'     => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
+      'bloom_analysis'      => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
+      'bloom_application'   => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
+      'bloom_understanding' => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
+      'bloom_knowledge'     => new sfValidatorSchemaFilter('text', new sfValidatorNumber(array('required' => false))),
     ));
 
     $this->widgetSchema->setNameFormat('user_model_filters[%s]');
