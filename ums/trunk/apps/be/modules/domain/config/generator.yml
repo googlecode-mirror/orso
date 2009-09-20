@@ -18,17 +18,13 @@ generator:
         display: [id, concept_name, concept_slug]
         max_per_page: 999999
         batch_actions:
-          order:
-            label: Update the tree order
           _delete: ~
         object_actions:
           new:
             label: Add Child
           _edit: ~
           _delete: ~
-        actions:
-          _new:
-            label: Add Root
+        actions: {}
       filter:
         class: false
       form: ~

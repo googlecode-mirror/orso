@@ -1,18 +1,18 @@
 Activity:
   Activity_1:
-    name: Introduzione al corso
+    name: Reading: introduzione al corso
     type: reading
     DomainModel: [Concept_1, Concept_2]
     SubActivity: [Activity_4]
   Activity_2:
-    name: Crittografia a chiave pubblica
+    name: Reading: crittografia classica
     type: reading
     DomainModel: [Concept_3, Concept_4, Concept_5, Concept_6]
   Activity_3:
-    name: Crittografia classica
+    name: Reading: il cifrario rsa
     type: reading
     DomainModel: [Concept_4, Concept_5, Concept_6]
   Activity_4:
-    name: le Api java per la sicurezza
+    name: Reading: le Api java per la sicurezza
     type: reading
     DomainModel: [Concept_3, Concept_4, Concept_5, Concept_6]

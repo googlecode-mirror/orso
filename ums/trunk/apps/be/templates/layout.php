@@ -27,7 +27,11 @@
           <li>
             <?php echo link_to('Users', '@user_user') ?>
           </li>
+<?php /*  <li>
+            <?php echo link_to('User Models', '@user_model_userModel') ?>
+          </li>
           <li>
+ */ ?>
             <?php echo link_to('Activity', '@activity_activity') ?>
           </li>
           <li>

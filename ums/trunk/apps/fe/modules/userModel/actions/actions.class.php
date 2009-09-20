@@ -14,25 +14,7 @@ class userModelActions extends sfActions
   {
     $tree = Doctrine::getTable('DomainModel')
              ->getUserModelByUsername($request->getParameter('username'), true);
-    /*
-    $q = Doctrine_Query::create()
-          ->select('d.concept_name, um.*')
-          ->from('DomainModel d')
-          ->leftJoin('d.Concept um')
-          ->where('User.id = um.user_id')
-          ->andWhere('User.username = ?', $request->getParameter('username'))
-          ->setHydrationMode(Doctrine::HYDRATE_ARRAY);
-
-    if($request->hasParameter('concept_slug'))
-    {
-      $q->andWhere('d.concept_slug = ?', $request->getParameter('concept_slug') );
-    }
-
-      $treeObject = Doctrine::getTable('DomainModel')->getTree();
-      $treeObject->setBaseQuery($q);
-      $tree = $treeObject->fetchTree();
-      $treeObject->resetBaseQuery();
-*/
+    
     $dumper = userModelDumperFactory::getDumperFor($request->getRequestFormat());
     $this->domain_dump = $dumper->dump($tree);
     
@@ -56,7 +38,6 @@ class userModelActions extends sfActions
    $dumper = userModelDumperFactory::getDumperFor($request->getRequestFormat());
    $this->domain_dump = $dumper->dump($domain_model);
 
-   #$this->domain_model = Doctrine::getTable('DomainModel')->find(array('user_id' => $request->getParameter('concept_id')));
   }
 
   public function executeUpdate(sfWebRequest $request)

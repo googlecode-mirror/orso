@@ -13,12 +13,12 @@ UserModel:
   columns:
     concept_id:           {type: integer}
     user_id:              {type: integer}
-    bloom_evaluation:     {type: float}
-    bloom_synthesis:      {type: float}
-    bloom_analysis:       {type: float}
-    bloom_application:    {type: float}
-    bloom_understanding:  {type: float}
-    bloom_knowledge:      {type: float}
+    bloom_evaluation:     {type: float, default: 0.0}
+    bloom_synthesis:      {type: float, default: 0.0}
+    bloom_analysis:       {type: float, default: 0.0}
+    bloom_application:    {type: float, default: 0.0}
+    bloom_understanding:  {type: float, default: 0.0}
+    bloom_knowledge:      {type: float, default: 0.0}
   relations:
     DomainModel: {onDelete: CASCADE, local: concept_id, foreign: id, foreignAlias: Concept}
     User:        {onDelete: CASCADE, local: user_id, foreign: id, foreignAlias: User}
@@ -28,17 +28,22 @@ Group:
   columns:
     name:     {type: string(255), unique: true}
   relations:
-    Users: {onDelete: CASCADE, class: User, refClass: UserGroup}
+    User: {onDelete: CASCADE, class: User, refClass: UserGroup}
 
 User:
   columns:
     username: {type: string(255), notnull: true, unique: true}
     email:    {type: string(255), unique: true}
+  relations:
+    Group: {onDelete: CASCADE, class: Group, refClass: UserGroup}
 
 UserGroup:
   columns:
     user_id:  {type: integer, primary: true }
     group_id: {type: integer, primary: true }
+  relations:
+    Group: {onDelete: CASCADE, local: group_id, foreign: id}
+    User: {onDelete: CASCADE, local: user_id, foreign: id}
 
 Activity:
   columns:
@@ -58,12 +63,12 @@ ActivityConcept:
   columns:
     activity_id:  {type: integer, primary: true }
     concept_id:   {type: integer, primary: true }
-    bloom_evaluation:     {type: float}
-    bloom_synthesis:      {type: float}
-    bloom_analysis:       {type: float}
-    bloom_application:    {type: float}
-    bloom_understanding:  {type: float}
-    bloom_knowledge:      {type: float}
+    bloom_evaluation:     {type: float, default: 0.0}
+    bloom_synthesis:      {type: float, default: 0.0}
+    bloom_analysis:       {type: float, default: 0.0}
+    bloom_application:    {type: float, default: 0.0}
+    bloom_understanding:  {type: float, default: 0.0}
+    bloom_knowledge:      {type: float, default: 0.0}
   relations:
     DomainModel:  {onDelete: CASCADE, local: concept_id, foreign: id }
     Activity:     {onDelete: CASCADE, local: activity_id, foreign: id }

@@ -25,6 +25,21 @@ class DomainModelTable extends Doctrine_Table
   return $tree;
   }
 
+  public function createUserModelByUser($user)
+  {
+    $treeObject = $this->getTree();
+    $tree = $treeObject->fetchTree();
+
+    foreach ($tree as $node) {
+        $um = new UserModel();
+        $um->DomainModel = $node;
+        $um->User = $user;
+        $um->save();
+    }
+
+
+  }
+
 public function getConceptNames()
   {
     $q = $this->createQuery()

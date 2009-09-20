@@ -5,23 +5,28 @@ domain:
   param: { module: domain, action: index}
   requirements:
     sf_method: [get]
-    sf_format: (?:html|xml|json|dot)
+    sf_format: (?:html|xml)
+
+domainPart:
+  url:   /domain/concept/:concept_slug.:sf_format
+  param: { module: domain, action: show}
+  requirements:
+    sf_method: [get]
+    sf_format: (?:html|xml)
 
 domainActivity:
-  url:  /domain/activity.:sf_format
+  url:  /domain2activity.:sf_format
   param: { module: domain, action: activity}
   requirements:
     sf_method: [get]
     sf_format: (?:html|xml)
 
-domainUpdateById:
-  url:      /domain/concept/:concept_id
-  class:    sfDoctrineRoute
-  options:  { model: DomainModel, type: object }
-  param:    { module: domain, action: update}
+activityDomain:
+  url: /activity2domain.:sf_format
+  param: { module: activity, action: index}
   requirements:
-    sf_method: [get, put, post]
-    concept_id: \d+
+    sf_method: [get]
+    sf_format: (?:html|xml)
 
 domainUpdateBySlug:
   url:      /domain/concept/:concept_slug
@@ -29,9 +34,8 @@ domainUpdateBySlug:
   class: sfDoctrineRoute
   options:  { model: DomainModel, type: object }
   requirements:
-    sf_method: [get, put, post]
+    sf_method: [put, post]
     concept_slug: \w+
-
 
 userModel:
   url:  /usermodel/:username.:sf_format
@@ -55,9 +59,6 @@ updateUserModelPart:
   requirements:
     sf_method: [get, put, post]
 
-activity:
-  url: /activity.:sf_format
-  param: { module: activity, action: index}
-  requirements:
-    sf_method: [get]
-    sf_format: (?:html|xml)
+homepage:
+  url:   /
+  param: { module: domain, action: index, sf_format: html}

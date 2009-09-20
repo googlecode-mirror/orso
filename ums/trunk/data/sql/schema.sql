@@ -12,7 +12,7 @@ ALTER TABLE activity_concept ADD FOREIGN KEY (concept_id) REFERENCES domain_mode
 ALTER TABLE activity_concept ADD FOREIGN KEY (activity_id) REFERENCES activity(id) ON DELETE CASCADE;
 ALTER TABLE activity_sub_activity ADD FOREIGN KEY (parent_id) REFERENCES activity(id);
 ALTER TABLE user2_user_group ADD FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE;
-ALTER TABLE user_group ADD FOREIGN KEY (user_id) REFERENCES user(id);
-ALTER TABLE user_group ADD FOREIGN KEY (group_id) REFERENCES groups(id);
+ALTER TABLE user_group ADD FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE;
+ALTER TABLE user_group ADD FOREIGN KEY (group_id) REFERENCES groups(id) ON DELETE CASCADE;
 ALTER TABLE user_model ADD FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE;
 ALTER TABLE user_model ADD FOREIGN KEY (concept_id) REFERENCES domain_model(id) ON DELETE CASCADE;

@@ -14,11 +14,15 @@ abstract class BaseUser extends sfDoctrineRecord
 
     public function setUp()
     {
+        $this->hasMany('Group', array('refClass' => 'UserGroup',
+                                      'local' => 'user_id',
+                                      'foreign' => 'group_id',
+                                      'onDelete' => 'CASCADE'));
+
         $this->hasMany('UserModel as User', array('local' => 'id',
                                                   'foreign' => 'user_id'));
 
-        $this->hasMany('Group', array('refClass' => 'UserGroup',
-                                      'local' => 'user_id',
-                                      'foreign' => 'group_id'));
+        $this->hasMany('UserGroup', array('local' => 'id',
+                                          'foreign' => 'user_id'));
     }
 }

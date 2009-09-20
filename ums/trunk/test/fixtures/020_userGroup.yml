@@ -1,10 +1,10 @@
 Group:
   Gruppo_1:
     name: gruppo 1
-    Users: [User_1, User_2, User_3]
+    User: [User_1, User_2, User_3]
   Gruppo_2:
     name: gruppo 2
-    Users: [User_3, User_4]
+    User: [User_3, User_4]
 
 User:
   User_1:

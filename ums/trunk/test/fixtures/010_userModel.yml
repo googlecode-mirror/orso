@@ -3,21 +3,19 @@ UserModel:
   UserModel_User_1_<?php echo $i; ?>:
     DomainModel: Concept_<?php echo $i."\n"; ?>
     User:        User_1
-    bloom_evaluation:     <?php echo rand(0,100)."\n"; ?>
-    bloom_synthesis:      <?php echo rand(0,100)."\n"; ?>
-    bloom_analysis:       <?php echo rand(0,100)."\n"; ?>
-    bloom_application:    <?php echo rand(0,100)."\n"; ?>
-    bloom_understanding:  <?php echo rand(0,100)."\n"; ?>
-    bloom_knowledge:      <?php echo rand(0,100)."\n"; ?>
 <?php endfor; ?>
 <?php for($i = 1; $i<6; $i++): ?>
   UserModel_User_2_<?php echo $i; ?>:
     DomainModel: Concept_<?php echo $i."\n"; ?>
     User:        User_2
-    bloom_evaluation:     <?php echo rand(0,100)."\n"; ?>
-    bloom_synthesis:      <?php echo rand(0,100)."\n"; ?>
-    bloom_analysis:       <?php echo rand(0,100)."\n"; ?>
-    bloom_application:    <?php echo rand(0,100)."\n"; ?>
-    bloom_understanding:  <?php echo rand(0,100)."\n"; ?>
-    bloom_knowledge:      <?php echo rand(0,100)."\n"; ?>
+<?php endfor; ?>
+<?php for($i = 1; $i<6; $i++): ?>
+  UserModel_User_3_<?php echo $i; ?>:
+    DomainModel: Concept_<?php echo $i."\n"; ?>
+    User:        User_3
+<?php endfor; ?>
+<?php for($i = 1; $i<6; $i++): ?>
+  UserModel_User_4_<?php echo $i; ?>:
+    DomainModel: Concept_<?php echo $i."\n"; ?>
+    User:        User_4
 <?php endfor; ?>

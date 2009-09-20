@@ -10,12 +10,12 @@ abstract class BaseUserModel extends sfDoctrineRecord
         $this->setTableName('user_model');
         $this->hasColumn('concept_id', 'integer', null, array('type' => 'integer'));
         $this->hasColumn('user_id', 'integer', null, array('type' => 'integer'));
-        $this->hasColumn('bloom_evaluation', 'float', null, array('type' => 'float'));
-        $this->hasColumn('bloom_synthesis', 'float', null, array('type' => 'float'));
-        $this->hasColumn('bloom_analysis', 'float', null, array('type' => 'float'));
-        $this->hasColumn('bloom_application', 'float', null, array('type' => 'float'));
-        $this->hasColumn('bloom_understanding', 'float', null, array('type' => 'float'));
-        $this->hasColumn('bloom_knowledge', 'float', null, array('type' => 'float'));
+        $this->hasColumn('bloom_evaluation', 'float', null, array('type' => 'float', 'default' => 0));
+        $this->hasColumn('bloom_synthesis', 'float', null, array('type' => 'float', 'default' => 0));
+        $this->hasColumn('bloom_analysis', 'float', null, array('type' => 'float', 'default' => 0));
+        $this->hasColumn('bloom_application', 'float', null, array('type' => 'float', 'default' => 0));
+        $this->hasColumn('bloom_understanding', 'float', null, array('type' => 'float', 'default' => 0));
+        $this->hasColumn('bloom_knowledge', 'float', null, array('type' => 'float', 'default' => 0));
     }
 
     public function setUp()

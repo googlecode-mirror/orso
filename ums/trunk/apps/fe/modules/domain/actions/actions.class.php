@@ -45,9 +45,30 @@ class domainActions extends sfActions
   
   public function executeShow(sfWebRequest $request)
   {
-    $this->domain_model = Doctrine::getTable('DomainModel')->find(array($request->getParameter('concept_id')));
-    $this->forward404Unless($this->domain_model);
+    $tree = Doctrine::getTable('DomainModel')->findOneByConceptSlug($request->getParameter('concept_slug'));
+
+    switch($request->getRequestFormat())
+    {
+      case 'xml':
+        $dumper = new domainModelXMLDumper($tree);
+        break;
+      case 'html':
+        $dumper = new domainModelHTMLDumper($tree);
+        break;
+      case 'json':
+        $dumper = new domainModelJsonDumper($tree);
+        break;
+      case 'dot':
+        $dumper = new domainModelGraphvizDumper($tree);
+        break;
+      default:
+        return sfView::NONE;
+    }
+
+    $this->domain_dump = $dumper->dump();
+    $this->setTemplate('index');
   }
+
 
   public function executeNew(sfWebRequest $request)
   {
