@@ -1,4 +1,4 @@
-CREATE TABLE activity (id BIGINT AUTO_INCREMENT, name VARCHAR(255), type VARCHAR(255), filename VARCHAR(255), PRIMARY KEY(id)) ENGINE = INNODB;
+CREATE TABLE activity (id BIGINT AUTO_INCREMENT, name VARCHAR(255), type VARCHAR(255), resource_type VARCHAR(255), resource_uri_upload VARCHAR(255), resource_uri_external VARCHAR(255), PRIMARY KEY(id)) ENGINE = INNODB;
 CREATE TABLE activity_concept (activity_id BIGINT, concept_id BIGINT, bloom_evaluation DOUBLE, bloom_synthesis DOUBLE, bloom_analysis DOUBLE, bloom_application DOUBLE, bloom_understanding DOUBLE, bloom_knowledge DOUBLE, PRIMARY KEY(activity_id, concept_id)) ENGINE = INNODB;
 CREATE TABLE activity_sub_activity (parent_id BIGINT, child_id BIGINT, PRIMARY KEY(parent_id, child_id)) ENGINE = INNODB;
 CREATE TABLE domain_model (id BIGINT AUTO_INCREMENT, concept_name VARCHAR(255), lft INT, rgt INT, level SMALLINT, slug VARCHAR(255), UNIQUE INDEX sluggable_idx (slug), PRIMARY KEY(id)) ENGINE = INNODB;

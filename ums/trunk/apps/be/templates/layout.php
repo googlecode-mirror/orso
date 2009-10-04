@@ -10,11 +10,7 @@
   <body>
     <div id="container">
       <div id="header">
-        <h1>
-          <a href="<?php echo url_for('@homepage') ?>">
-            HomePage
-          </a>
-        </h1>
+        <h1>UMS Admin Interface</h1>
       </div>
       <div id="menu">
         <ul>
@@ -27,11 +23,13 @@
           <li>
             <?php echo link_to('Users', '@user_user') ?>
           </li>
-<?php /*  <li>
+<?php /*
+*         <li>
             <?php echo link_to('User Models', '@user_model_userModel') ?>
           </li>
           <li>
  */ ?>
+          <li>
             <?php echo link_to('Activity', '@activity_activity') ?>
           </li>
           <li>

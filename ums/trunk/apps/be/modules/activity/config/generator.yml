@@ -13,8 +13,11 @@ generator:
     config:
       actions: ~
       fields:  ~
-      list:    ~
-      filter:  ~
+      list:
+        title:   Activity Management
+        display: [id, name, type, resource_type, _resource_uri]
+      filter:
+        display: [name, type, resource_type, domain_model_list]
       form:
         class: BeActivityForm
       edit:    ~

@@ -47,9 +47,11 @@ UserGroup:
 
 Activity:
   columns:
-    name:       {type: string(255)}
-    type:       {type: enum, values: ['reading', 'exercise', 'quiz', 'worked example']}
-    filename:   {type: string(255)}
+    name:                  {type: string(255)}
+    type:                  {type: enum, values: ['reading', 'exercise', 'quiz', 'worked example']}
+    resource_type:         {type: enum, values: ['upload', 'external']}
+    resource_uri_upload:   {type: string(255)}
+    resource_uri_external: {type: string(255)}
   relations:
     DomainModel:  {onDelete: CASCADE, class: DomainModel, refClass: ActivityConcept, foreign: concept_id, local: activity_id}
     SubActivity:  {onDelete: CASCADE, class: Activity, refClass: ActivitySubActivity, foreign: child_id, local: parent_id}

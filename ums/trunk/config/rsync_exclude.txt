@@ -3,3 +3,9 @@
 /cache/*
 /log/*
 /web/*_dev.php
+nbproject/*
+.settings/*
+.DS_Store
+.buildpath
+.project
+.nbproject/*

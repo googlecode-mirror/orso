@@ -13,4 +13,5 @@ require_once dirname(__FILE__).'/../lib/activityGeneratorHelper.class.php';
  */
 class activityActions extends autoActivityActions
 {
+
 }

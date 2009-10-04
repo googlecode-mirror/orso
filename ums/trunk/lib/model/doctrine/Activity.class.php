@@ -5,8 +5,24 @@
  */
 class Activity extends BaseActivity
 {
-    public function __toString()
-    {
-        return $this['name'];
-    }
+  public function __toString()
+  {
+    return $this['name'];
+  }
+
+  public function isResourceExternal()
+  {
+    return ($this->resource_type == 'external');
+  }
+
+  public function isResourceLocal()
+  {
+    return !$this->isResourceExternal();
+  }
+
+  public function getResourceUri()
+  {
+
+   return !empty($this->resource_uri_upload) ? $this->resource_uri_upload : $this->resource_uri_external;
+  }
 }
